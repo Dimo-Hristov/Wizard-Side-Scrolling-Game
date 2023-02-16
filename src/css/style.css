@@ -44,6 +44,13 @@ body{
     background-size: cover;
 }
 
+.fireball{
+    position: absolute;
+    background-image: url("../images/fire-ball.png");
+    background-size: cover;
+}
+
+
 .hidden{
     display: none;
 }

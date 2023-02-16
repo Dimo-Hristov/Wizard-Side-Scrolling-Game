@@ -28,8 +28,11 @@ function gameLoop(state, game, timestamp) {
         wizard.posY = Math.max(wizard.posY - wizard.speed, 0)
     }
 
+    // make wizard throw fireball
     if (state.keys.Space) {
         game.wizardElement.style.backgroundImage = 'url("/src/images/wizard-fire.png")'
+
+        game.createFireball(wizard, state.fireball);
     } else {
         game.wizardElement.style.backgroundImage = 'url("/src/images/wizard.png")'
     }
