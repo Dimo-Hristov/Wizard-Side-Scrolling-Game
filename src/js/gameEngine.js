@@ -6,12 +6,10 @@ function start(state, game) {
 
 
 
+// move wizard
 function gameLoop(state, game) {
     const { wizard } = state;
     const { wizardElement } = game;
-
-    // move wizard
-
 
     if (state.keys.KeyA && wizard.posX) {
         wizard.posX = Math.max(wizard.posX - wizard.speed, 0)
@@ -29,6 +27,8 @@ function gameLoop(state, game) {
         wizard.posY = Math.max(wizard.posY - wizard.speed, 0)
     }
 
+    // spawn bugs
+    game.createBug(state.bugStats)
 
 
     //render
