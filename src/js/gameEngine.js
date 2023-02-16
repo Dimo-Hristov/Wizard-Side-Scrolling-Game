@@ -1,7 +1,7 @@
 function start(state, game) {
     game.createWizard(state.wizard);
 
-    window.requestAnimationFrame(timestamp => gameLoop(state, game, timestamp));
+    window.requestAnimationFrame(gameLoop.bind(null, state, game));
 }
 
 
@@ -11,6 +11,7 @@ function gameLoop(state, game, timestamp) {
     const { wizard } = state;
     const { wizardElement } = game;
 
+    // wizad movement
     if (state.keys.KeyA && wizard.posX) {
         wizard.posX = Math.max(wizard.posX - wizard.speed, 0)
     }
@@ -25,6 +26,12 @@ function gameLoop(state, game, timestamp) {
 
     if (state.keys.KeyW && wizard.posY) {
         wizard.posY = Math.max(wizard.posY - wizard.speed, 0)
+    }
+
+    if (state.keys.Space) {
+        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard-fire.png")'
+    } else {
+        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard.png")'
     }
 
     // spawn bugs
