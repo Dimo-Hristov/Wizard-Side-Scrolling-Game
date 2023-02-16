@@ -32,6 +32,12 @@ body{
     background-color: rgb(125, 221, 250);
 }
 
+.wizard{
+    position: absolute;
+    background-image: url("../images/wizard.png");
+    background-size: cover;
+}
+
 .hidden{
     display: none;
 }

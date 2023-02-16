@@ -7,5 +7,5 @@ game.startScreen.addEventListener('click', (e) => {
     game.gameScreen.classList.remove('hidden');
 
     // start the game
-    startGameLoop(state, game)
+    start(state, game)
 })

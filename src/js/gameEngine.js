@@ -1,4 +1,12 @@
-function startGameLoop(state, game) {
-    console.log(state.player);
-    window.requestAnimationFrame(startGameLoop)
+function start(state, game) {
+    game.createWizard(state.wizard);
+
+    window.requestAnimationFrame(gameLoop.bind(null, state, game));
+}
+
+
+
+function gameLoop(state, game) {
+
+    window.requestAnimationFrame(gameLoop.bind(null, state, game))
 }
