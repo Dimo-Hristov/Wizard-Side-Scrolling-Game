@@ -1,12 +1,16 @@
 function initState() {
+    let startX = 200;
+    let startY = 300;
+
     const state = {
         player: 'Pesho',
         wizard: {
             width: 82,
             height: 100,
-            startX: 200,
-            startY: 300
-        }
+            posX: startX,
+            posY: startY,
+        },
+        keys: {}
     }
     return state
 }
