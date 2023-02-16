@@ -55,6 +55,13 @@ function gameLoop(state, game, timestamp) {
 
     })
 
+    //render fireballs
+    document.querySelectorAll('.fireball').forEach(fireball => {
+        let posX = parseInt(fireball.style.left);
+
+        fireball.style.left = posX + state.fireball.speed + 'px'
+    })
+
     //render
     wizardElement.style.left = wizard.posX + 'px'
     wizardElement.style.top = wizard.posY + 'px'
