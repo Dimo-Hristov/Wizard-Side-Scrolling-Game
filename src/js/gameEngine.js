@@ -11,6 +11,9 @@ function gameLoop(state, game, timestamp) {
     const { wizard } = state;
     const { wizardElement } = game;
 
+
+    game.scoreEl.textContent = `Score:  ${state.score} pts.`
+
     // wizad movement
     if (state.keys.KeyA && wizard.posX) {
         wizard.posX = Math.max(wizard.posX - wizard.speed, 0)
@@ -75,6 +78,7 @@ function gameLoop(state, game, timestamp) {
         //detect collision
         bugElements.forEach(bug => {
             if (detectCollision(bug, fireball)) {
+                state.score += state.killScore
                 bug.remove();
                 fireball.remove();
             }
@@ -94,8 +98,9 @@ function gameLoop(state, game, timestamp) {
     wizardElement.style.top = wizard.posY + 'px';
 
     if (state.gameOver) {
-        alert('GAME OVER')
+        alert('GAME OVER');
     } else {
+        state.score += 1;
         window.requestAnimationFrame(gameLoop.bind(null, state, game))
     }
 
