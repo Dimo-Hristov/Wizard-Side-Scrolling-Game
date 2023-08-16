@@ -30,9 +30,14 @@ function gameLoop(state, game, timestamp) {
 
     // make wizard throw fireball
     if (state.keys.Space) {
-        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard-fire.png")'
+        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard-fire.png")';
 
-        game.createFireball(wizard, state.fireball);
+        if (timestamp > state.fireball.spawnTimestamp) {
+            game.createFireball(wizard, state.fireball);
+            state.fireball.spawnTimestamp = timestamp + state.fireball.fireRate
+        }
+
+
     } else {
         game.wizardElement.style.backgroundImage = 'url("/src/images/wizard.png")'
     }

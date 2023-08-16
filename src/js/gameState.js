@@ -15,6 +15,8 @@ function initState() {
             width: 20,
             height: 20,
             speed: 5,
+            spawnTimestamp: 0,
+            fireRate: 300,
         },
         bugStats: {
             width: 50,
