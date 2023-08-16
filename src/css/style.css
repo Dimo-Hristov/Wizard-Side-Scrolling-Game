@@ -1,6 +1,7 @@
 body{
     font-family: consolas;
     margin: 0;
+    overflow: hidden;
 }
 
 .game {

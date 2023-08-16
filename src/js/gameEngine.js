@@ -59,7 +59,13 @@ function gameLoop(state, game, timestamp) {
     document.querySelectorAll('.fireball').forEach(fireball => {
         let posX = parseInt(fireball.style.left);
 
-        fireball.style.left = posX + state.fireball.speed + 'px'
+        if (posX > game.gameScreen.offsetWidth) {
+            fireball.remove()
+        } else {
+            fireball.style.left = posX + state.fireball.speed + 'px'
+        }
+
+
     })
 
     //render
